@@ -5,6 +5,8 @@ This tool generates files for a new Elm module using the structure I generally a
 
 Not elegant, not error proof, not pythonic, just get the job done ASAP. :)
 
+The module structure was influenced by this [blog post](http://blog.jenkster.com/2016/04/how-i-structure-elm-apps.html). (written by Kris Jenkins)
+
 ## Requirements
 
 * the only requirement is to have python 3 installed
