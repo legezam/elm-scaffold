@@ -1,4 +1,4 @@
-module Example.Admin.Blog.Core exposing (..)
+module Example.Admin.Blog.Core exposing (init, update, urlUpdate, subscriptions)
 
 import Example.Admin.Blog.Types exposing(..)
 

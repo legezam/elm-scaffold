@@ -24,13 +24,13 @@ view : {module}Model -> Html {module}Msg
 view model = div [] []
 """
 
-coreTemplate = """module {fullModule}.Core exposing (..)
+coreTemplate = """module {fullModule}.Core exposing (init, update, urlUpdate, subscriptions)
 
 import {fullModule}.Types exposing(..)
 
 init : {module}Route -> ( {module}Model, Cmd {module}Msg )
 init route =
-    ( {{ route = BlogRoute }}, Cmd.none)
+    ( {{ route = {module}Route }}, Cmd.none)
 
 update : {module}Msg -> {module}Model -> ( {module}Model, Cmd {module}Msg )
 update msg model =
@@ -46,7 +46,7 @@ subscriptions state =
 
 def parseArgs():
     parser = argparse.ArgumentParser(description='Elm module scaffolding tool')
-    parser.add_argument('moduleName', help='full name of the module. ("Elm.Main.App")')
+    parser.add_argument('moduleName', help='fully qualified name of the module. (for instance, "Example.Admin.Blog")')
     return parser.parse_args()
 
 if __name__ == "__main__":
@@ -68,6 +68,4 @@ if __name__ == "__main__":
     f = open(os.path.join(*parts, 'Core.elm'), 'wt', encoding='utf-8')
     f.write(coreTemplate.format(fullModule=(args.moduleName), module=moduleName))
     f.close()
-
-    print("haho")
 
